@@ -1,0 +1,141 @@
+[
+    {
+        "name": "get_weather_today",
+        "description": "किसी शहर के आज के मौसम की जानकारी प्राप्त करता है (Fetches today's current weather for a city)",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "शहर का नाम, जैसे 'Mumbai', 'Delhi', 'Jaipur'"
+                }
+            },
+            "required": [
+                "city"
+            ]
+        }
+    },
+    {
+        "name": "get_weather_forecast",
+        "description": "किसी शहर के लिए 5-दिन के पूर्वानुमान में से किसी विशिष्ट तारीख/समय का मौसम प्राप्त करता है (Fetches forecasted weather for a specific date/time within the 5-day range)",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "शहर का नाम, जैसे 'Mumbai', 'Delhi', 'Jaipur'"
+                },
+                "date": {
+                    "type": "string",
+                    "description": "तारीख और समय, प्रारूप 'YYYY-MM-DD HH:MM:SS'। समय हमेशा निकटतम 3-घंटे के स्लॉट पर पूर्णांकित करें: 00:00:00, 03:00:00, 06:00:00, 09:00:00, 12:00:00, 15:00:00, 18:00:00, या 21:00:00। यदि केवल तारीख पूछी गई हो (समय नहीं बताया गया हो) तो '00:00:00' रखें।"
+                }
+            },
+            "required": [
+                "city",
+                "date"
+            ]
+        }
+    },
+    {
+        "name": "convert_currency",
+        "description": "एक मुद्रा से दूसरी मुद्रा में दी गई राशि को परिवर्तित करता है",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "description": "परिवर्तित की जाने वाली राशि"
+                },
+                "from_currency": {
+                    "type": "string",
+                    "description": "मूल मुद्रा कोड, जैसे 'INR', 'USD', 'EUR'"
+                },
+                "to_currency": {
+                    "type": "string",
+                    "description": "लक्ष्य मुद्रा कोड, जैसे 'USD', 'INR', 'EUR'"
+                }
+            },
+            "required": [
+                "amount",
+                "from_currency",
+                "to_currency"
+            ]
+        }
+    },
+    {
+        "name": "set_reminder",
+        "description": "उपयोगकर्ता के लिए एक निश्चित तारीख और समय पर रिमाइंडर सेट करता है",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "task": {
+                    "type": "string",
+                    "description": "रिमाइंडर का विवरण, जैसे 'डॉक्टर अपॉइंटमेंट'"
+                },
+                "date": {
+                    "type": "string",
+                    "description": "रिमाइंडर की तारीख, प्रारूप 'YYYY-MM-DD'"
+                },
+                "time": {
+                    "type": "string",
+                    "description": "रिमाइंडर का समय, 24-घंटे प्रारूप 'HH:MM'"
+                }
+            },
+            "required": [
+                "task",
+                "date",
+                "time"
+            ]
+        }
+    },
+    {
+        "name": "search_restaurant",
+        "description": "किसी शहर में रेस्टोरेंट खोजता है, वैकल्पिक रूप से व्यंजन प्रकार और मूल्य सीमा के आधार पर फ़िल्टर करता है",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "शहर का नाम, जैसे 'Indore', 'Jaipur'"
+                },
+                "cuisine": {
+                    "type": "string",
+                    "description": "व्यंजन प्रकार, जैसे 'उत्तर भारतीय', 'दक्षिण भारतीय', 'चाइनीज़'"
+                },
+                "price_range": {
+                    "type": "string",
+                    "enum": [
+                        "सस्ता",
+                        "मध्यम",
+                        "महंगा"
+                    ],
+                    "description": "मूल्य सीमा"
+                }
+            },
+            "required": [
+                "city"
+            ]
+        }
+    },
+    {
+        "name": "send_message",
+        "description": "किसी संपर्क को टेक्स्ट संदेश भेजता है",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "recipient": {
+                    "type": "string",
+                    "description": "संदेश प्राप्तकर्ता का नाम या फ़ोन नंबर"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "भेजे जाने वाले संदेश की विषय-वस्तु"
+                }
+            },
+            "required": [
+                "recipient",
+                "message"
+            ]
+        }
+    }
+]

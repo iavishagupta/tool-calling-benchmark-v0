@@ -1,0 +1,180 @@
+{
+    "reference_date": "2026-08-08",
+    "note": "सभी सापेक्ष तारीखें (कल, परसों, अगला शुक्रवार आदि) इसी reference_date के आधार पर हल की गई हैं।",
+    "queries": [
+        {
+            "id": "hindi_0",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "इंदौर में अभी मौसम कैसा है?"
+                }
+            ],
+            "function": [
+                "get_weather_today"
+            ]
+        },
+        {
+            "id": "hindi_1",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "पुणे का आज का तापमान क्या है?"
+                }
+            ],
+            "function": [
+                "get_weather_today"
+            ]
+        },
+        {
+            "id": "hindi_2",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "परसों दोपहर 12 बजे जयपुर में मौसम कैसा रहेगा?"
+                }
+            ],
+            "function": [
+                "get_weather_forecast"
+            ]
+        },
+        {
+            "id": "hindi_3",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "अगले शुक्रवार शाम को बेंगलुरु में बारिश होगी क्या?"
+                }
+            ],
+            "function": [
+                "get_weather_forecast"
+            ]
+        },
+        {
+            "id": "hindi_4",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "500 डॉलर कितने रुपये होंगे?"
+                }
+            ],
+            "function": [
+                "convert_currency"
+            ]
+        },
+        {
+            "id": "hindi_5",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "2000 रुपये यूरो में कितने होंगे?"
+                }
+            ],
+            "function": [
+                "convert_currency"
+            ]
+        },
+        {
+            "id": "hindi_6",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "कल सुबह 9 बजे डॉक्टर अपॉइंटमेंट के लिए याद दिलाना।"
+                }
+            ],
+            "function": [
+                "set_reminder"
+            ]
+        },
+        {
+            "id": "hindi_7",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "20 अगस्त शाम 6 बजे मीटिंग का रिमाइंडर लगाओ।"
+                }
+            ],
+            "function": [
+                "set_reminder"
+            ]
+        },
+        {
+            "id": "hindi_8",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "इंदौर में सस्ते उत्तर भारतीय रेस्टोरेंट खोजो।"
+                }
+            ],
+            "function": [
+                "search_restaurant"
+            ]
+        },
+        {
+            "id": "hindi_9",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "जयपुर में अच्छे रेस्टोरेंट बताओ।"
+                }
+            ],
+            "function": [
+                "search_restaurant"
+            ]
+        },
+        {
+            "id": "hindi_10",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "रोहन को बताओ कि मैं आधे घंटे में पहुंच जाऊंगा।"
+                }
+            ],
+            "function": [
+                "send_message"
+            ]
+        },
+        {
+            "id": "hindi_11",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "मम्मी को मैसेज करो कि आज देर हो जाएगी।"
+                }
+            ],
+            "function": [
+                "send_message"
+            ]
+        },
+        {
+            "id": "hindi_12",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "मुंबई का आज का मौसम बताओ और साथ ही 1000 रुपये डॉलर में बदलो।"
+                }
+            ],
+            "function": [
+                "get_weather_today",
+                "convert_currency"
+            ]
+        },
+        {
+            "id": "hindi_13",
+            "question": [
+                {
+                    "role": "user",
+                    "content": "भारत का राष्ट्रीय पशु क्या है?"
+                }
+            ],
+            "function": [
+                "get_weather_today",
+                "get_weather_forecast",
+                "convert_currency",
+                "set_reminder",
+                "search_restaurant",
+                "send_message"
+            ]
+        }
+    ]
+}

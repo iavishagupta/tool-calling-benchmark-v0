@@ -1,0 +1,193 @@
+{
+    "hindi_0": [
+        {
+            "get_weather_today": {
+                "city": [
+                    "Indore",
+                    "इंदौर"
+                ]
+            }
+        }
+    ],
+    "hindi_1": [
+        {
+            "get_weather_today": {
+                "city": [
+                    "Pune",
+                    "पुणे"
+                ]
+            }
+        }
+    ],
+    "hindi_2": [
+        {
+            "get_weather_forecast": {
+                "city": [
+                    "Jaipur",
+                    "जयपुर"
+                ],
+                "date": [
+                    "2026-08-10 12:00:00"
+                ]
+            }
+        }
+    ],
+    "hindi_3": [
+        {
+            "get_weather_forecast": {
+                "city": [
+                    "Bengaluru",
+                    "Bangalore",
+                    "बेंगलुरु"
+                ],
+                "date": [
+                    "2026-08-14 18:00:00"
+                ]
+            }
+        }
+    ],
+    "hindi_4": [
+        {
+            "convert_currency": {
+                "amount": [
+                    500
+                ],
+                "from_currency": [
+                    "USD"
+                ],
+                "to_currency": [
+                    "INR"
+                ]
+            }
+        }
+    ],
+    "hindi_5": [
+        {
+            "convert_currency": {
+                "amount": [
+                    2000
+                ],
+                "from_currency": [
+                    "INR"
+                ],
+                "to_currency": [
+                    "EUR"
+                ]
+            }
+        }
+    ],
+    "hindi_6": [
+        {
+            "set_reminder": {
+                "task": [
+                    "डॉक्टर अपॉइंटमेंट",
+                    "doctor appointment"
+                ],
+                "date": [
+                    "2026-08-09"
+                ],
+                "time": [
+                    "09:00"
+                ]
+            }
+        }
+    ],
+    "hindi_7": [
+        {
+            "set_reminder": {
+                "task": [
+                    "मीटिंग",
+                    "meeting"
+                ],
+                "date": [
+                    "2026-08-20"
+                ],
+                "time": [
+                    "18:00"
+                ]
+            }
+        }
+    ],
+    "hindi_8": [
+        {
+            "search_restaurant": {
+                "city": [
+                    "Indore",
+                    "इंदौर"
+                ],
+                "cuisine": [
+                    "उत्तर भारतीय",
+                    "North Indian"
+                ],
+                "price_range": [
+                    "सस्ता",
+                    "cheap",
+                    "budget"
+                ]
+            }
+        }
+    ],
+    "hindi_9": [
+        {
+            "search_restaurant": {
+                "city": [
+                    "Jaipur",
+                    "जयपुर"
+                ]
+            }
+        }
+    ],
+    "hindi_10": [
+        {
+            "send_message": {
+                "recipient": [
+                    "रोहन",
+                    "Rohan"
+                ],
+                "message": [
+                    "मैं आधे घंटे में पहुंच जाऊंगा",
+                    "I will reach in half an hour"
+                ]
+            }
+        }
+    ],
+    "hindi_11": [
+        {
+            "send_message": {
+                "recipient": [
+                    "मम्मी",
+                    "Mummy",
+                    "Mom"
+                ],
+                "message": [
+                    "आज देर हो जाएगी",
+                    "will be late today"
+                ]
+            }
+        }
+    ],
+    "hindi_12": [
+        {
+            "get_weather_today": {
+                "city": [
+                    "Mumbai",
+                    "मुंबई"
+                ]
+            }
+        },
+        {
+            "convert_currency": {
+                "amount": [
+                    1000
+                ],
+                "from_currency": [
+                    "INR"
+                ],
+                "to_currency": [
+                    "USD"
+                ]
+            }
+        }
+    ],
+    "hindi_13": []
+}
