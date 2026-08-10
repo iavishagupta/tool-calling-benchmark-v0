@@ -7,20 +7,19 @@ decode_ast() -> ast_checker() against ground truth -> score.
 
 import json
 import os
-from openai import OpenAI  # swap for whichever provider/local model you're testing
+from openai import OpenAI 
 from ast_utils import decode_ast, ast_checker
 
 from dotenv import load_dotenv
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))  # or point base_url at a local Hindi model server
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))  
 
 
 def build_system_prompt(tools_schema):
     """
     Tells the model exactly what tools exist and the exact output format
-    we need, so decode_ast() can parse it. This is the prompt-engineering
-    equivalent of what OpenAI's native function-calling does internally.
+    we need, so decode_ast() can parse it.
     """
     return f"""आपको निम्नलिखित टूल्स दिए गए हैं:
 
@@ -38,7 +37,7 @@ def build_system_prompt(tools_schema):
 
 def call_llm(system_prompt, user_query):
     response = client.chat.completions.create(
-        model="gpt-4o-mini",  # swap for the model you're actually benchmarking
+        model="gpt-4o-mini",  
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_query},
