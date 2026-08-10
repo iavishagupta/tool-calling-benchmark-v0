@@ -7,7 +7,8 @@ decode_ast() -> ast_checker() against ground truth -> score.
 
 import json
 import os
-from openai import OpenAI 
+from typing import Optional
+from openai import OpenAI  
 from ast_utils import decode_ast, ast_checker
 
 from dotenv import load_dotenv
@@ -16,28 +17,45 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))  
 
 
-def build_system_prompt(tools_schema):
+def build_system_prompt(tools_schema, extra_instructions: Optional[list] = None) -> str:
     """
     Tells the model exactly what tools exist and the exact output format
     we need, so decode_ast() can parse it.
     """
-    return f"""आपको निम्नलिखित टूल्स दिए गए हैं:
+    if extra_instructions is not None:
+        return f"""आपको निम्नलिखित टूल्स दिए गए हैं:
 
-{json.dumps(tools_schema, ensure_ascii=False, indent=2)}
+    {json.dumps(tools_schema, ensure_ascii=False, indent=2)}
 
-उपयोगकर्ता के प्रश्न के आधार पर सही टूल(स) को कॉल करें।
-जवाब में केवल फंक्शन कॉल लिखें, कोई अतिरिक्त टेक्स्ट नहीं।
+    {json.dumps(extra_instructions, ensure_ascii=False, indent=1)}
+    उपयोगकर्ता के प्रश्न के आधार पर सही टूल(स) को कॉल करें।
+    जवाब में केवल फंक्शन कॉल लिखें, कोई अतिरिक्त टेक्स्ट नहीं।
 
-फॉर्मेट:
-- एक कॉल: func_name(param="value")
-- कई कॉल: [func_name1(param="value"), func_name2(param="value")]
-- कोई भी टूल उपयुक्त न हो तो: []
-"""
+    फॉर्मेट:
+    - एक कॉल: func_name(param="value")
+    - कई कॉल: [func_name1(param="value"), func_name2(param="value")]
+    - कोई भी टूल उपयुक्त न हो तो: []
+    """
+
+    else:
+        return f"""आपको निम्नलिखित टूल्स दिए गए हैं:
+        
+            {json.dumps(tools_schema, ensure_ascii=False, indent=2)}
+
+            उपयोगकर्ता के प्रश्न के आधार पर सही टूल(स) को कॉल करें।
+            जवाब में केवल फंक्शन कॉल लिखें, कोई अतिरिक्त टेक्स्ट नहीं।
+        
+            फॉर्मेट:
+            - एक कॉल: func_name(param="value")
+            - कई कॉल: [func_name1(param="value"), func_name2(param="value")]
+            - कोई भी टूल उपयुक्त न हो तो: []
+            """
+
 
 
 def call_llm(system_prompt, user_query):
     response = client.chat.completions.create(
-        model="gpt-4o-mini",  
+        model="gpt-4o-mini", 
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_query},
@@ -51,11 +69,13 @@ def run_benchmark():
     with open("tools_schema.json", encoding="utf-8") as f:
         tools_schema = json.load(f)
     with open("hindi_dataset.json", encoding="utf-8") as f:
-        dataset = json.load(f)["queries"]
+        dataset_json = json.load(f)
+        dataset = dataset_json["queries"]
+        extra_instructions = dataset_json["context"]
     with open("hindi_ground_truth.json", encoding="utf-8") as f:
         ground_truths = json.load(f)
 
-    system_prompt = build_system_prompt(tools_schema)
+    system_prompt = build_system_prompt(tools_schema, extra_instructions)
 
     passed = 0
     results = []
