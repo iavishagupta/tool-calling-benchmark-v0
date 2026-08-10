@@ -70,7 +70,6 @@ def convert_currency(amount: float, from_currency: str, to_currency: str) :
 
 def set_reminder(task: str, date: str, time: str):
     try:
-        # validate format strictly since this has no external API to catch bad input
         datetime.strptime(date, "%Y-%m-%d")
         datetime.strptime(time, "%H:%M")
 
